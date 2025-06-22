@@ -35,9 +35,7 @@ jobs:
         uses: SpicyPizza/create-envfile@v2.0
         with:
           envkey_DATABASE_URL: "postgresql://r2p:ypassword@localhost:5432/zero2prod"
-          directory: zero2prod
       - name: Migrate database
-        working-directory: zero2prod
         run: |
           cargo install --version=0.8.6 sqlx-cli --no-default-features --features postgres,native-tls
           cargo sqlx database create
